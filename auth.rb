@@ -1,2 +1,2 @@
-USERNAME = 'comptethp@gmail.com'
-PASSWORD = 'azerty421'
+USERNAME = 'adresse@gmail.com'
+PASSWORD = 'motdepasse'
