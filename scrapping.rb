@@ -12,7 +12,8 @@ ws = session.spreadsheet_by_key("19UG8grMCORTC3i4znK_yIhXuKe99fpp84qqGASUXP2Y").
 #Methode pour attrapper toute les villes et tout les emails
 
 def get_all_the_urls_of_val_doise_townhalls()
-   page = Nokogiri::HTML(open("http://www.annuaire-des-mairies.com/val-d-oise.html"))
+   page = Nokogiri::HTML(open("http://www.annuaire-des-mairies.com/landes.html"))
+   page = Nokogiri::HTML(open("http://www.annuaire-des-mairies.com/landes-2.html"))
    @cityTab = []
 
    page.xpath('//a[@class="lientxt"]').each do |name|
@@ -26,11 +27,11 @@ def get_the_email_of_a_townhal_from_its_webpage(cities)
 	@all_emails = []
     cities.each do |city|
     	url_cities = city.downcase.gsub(' ', '-')
-        page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/95/#{url_cities}.html"))
-        @all_emails << page.css('p:contains("@")').text.gsub(' ','')
+        page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/40/#{url_cities}.html"))
+        @all_emails << page.css('p:contains("@")').text[1..-1]
     end 
 
-end 
+end
 
 
 #on appelle la méthode pour remplir les Tableaux
@@ -64,4 +65,3 @@ end
 
 	puts "tout les emails ont ete sauvegardé dans le tableau "
 	puts "https://docs.google.com/spreadsheets/d/19UG8grMCORTC3i4znK_yIhXuKe99fpp84qqGASUXP2Y/edit#gid=0"
-	
